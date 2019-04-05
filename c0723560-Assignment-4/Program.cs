@@ -15,10 +15,11 @@ namespace c0732132_Assignment_4
         {
             Program p = new Program();
             p.Beowulf = new ArrayList();
-
+            p.ReadTextFiles();
+            Console.ReadKey();
         }
         public void Run() { this.ReadTextFiles(); }
-
+ 
         public void ReadTextFiles()
         {
             // Read file using StramReader. Read file line by line
@@ -34,11 +35,13 @@ namespace c0732132_Assignment_4
 
                 }
                 file.Close();
+                counter = File.ReadLines("U:/Users/723560/c0723560-Assignment-4/c0723560-Assignment-4/Beowulf.txt").Count();
                 Console.WriteLine($"File has {counter} lines.");
             }
         }
         public int FindNumberOfBlankSpaces(string line)
         {
+
             int countletters = 0;
             int countSpaces = 0;
 
@@ -48,12 +51,14 @@ namespace c0732132_Assignment_4
                 {
                     countletters++;
                 }
+
                 if (char.IsWhiteSpace(c))
                 {
-                    countSpaces++;
+                    countletters++;
                 }
-                return countSpaces;
             }
+            return countSpaces;
+
         }
     }
 }
