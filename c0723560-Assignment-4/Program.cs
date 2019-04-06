@@ -17,14 +17,14 @@ namespace c0732132_Assignment_4
             Program p = new Program();
             p.Beowulf = new ArrayList();
             p.ReadTextFiles();
+            p.find();
             Console.ReadKey();
         }
         public void Run() { this.ReadTextFiles(); }
  
         public void ReadTextFiles()
         {
-            // Read file using StramReader. Read file line by line
-           
+   
                 StreamReader reader = new StreamReader("U:/Users/723560/c0723560-Assignment-4/c0723560-Assignment-4/Beowulf.txt");
             string script = reader.ReadToEnd();
 
@@ -33,7 +33,6 @@ namespace c0732132_Assignment_4
 
             while (index < text.Length)
             {
-
                 while (index < text.Length && !char.IsWhiteSpace(text[index]))
                     index++;
 
@@ -46,8 +45,23 @@ namespace c0732132_Assignment_4
             Console.WriteLine("Total Words are " + Count);
 
         }
+        public void find()
 
-    public int FindNumberOfBlankSpaces(string line)
+        {
+            int chr = 0;
+            foreach (var line in File.ReadAllLines("U:/Users/723560/c0723560-Assignment-4/c0723560-Assignment-4/Beowulf.txt"))
+            {
+                if (line.Contains("sea") && line.Contains("fare"))
+                {
+                    chr++;
+                }
+
+            }
+            Console.WriteLine("Total words of sea and fare :" + chr);
+
+        }
+
+        public int FindNumberOfBlankSpaces(string line)
         {
 
             int countletters = 0;
