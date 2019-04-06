@@ -18,6 +18,7 @@ namespace c0732132_Assignment_4
             p.Beowulf = new ArrayList();
             p.ReadTextFiles();
             p.find();
+            p.Word();
             Console.ReadKey();
         }
         public void Run() { this.ReadTextFiles(); }
@@ -48,19 +49,39 @@ namespace c0732132_Assignment_4
         public void find()
 
         {
-            int chr = 0;
+            int ABC = 0;
             foreach (var line in File.ReadAllLines("U:/Users/723560/c0723560-Assignment-4/c0723560-Assignment-4/Beowulf.txt"))
             {
                 if (line.Contains("sea") && line.Contains("fare"))
                 {
-                    chr++;
+                    ABC++;
                 }
 
             }
-            Console.WriteLine("Total words of sea and fare :" + chr);
+            Console.WriteLine("Total words of sea and fare :" + ABC);
 
         }
+        public void Word()
+        {
+            int ABC = 0, DEF = 0, GHI = 0;
 
+            foreach (var line in File.ReadAllLines("U:/Users/723560/c0723560-Assignment-4/c0723560-Assignment-4/Beowulf.txt"))
+            { if (line.Contains("fare"))
+                { ABC++;}
+            }
+            foreach (var line in File.ReadAllLines("U:/Users/723560/c0723560-Assignment-4/c0723560-Assignment-4/Beowulf.txt"))
+            {
+                if (line.Contains("war") && line.Contains("fare"))
+                {
+                    DEF++;
+                }
+
+            }
+            GHI = ABC - DEF;
+
+
+            Console.WriteLine("Total Lines which contain fare but not war: " + GHI);
+        }
         public int FindNumberOfBlankSpaces(string line)
         {
 
