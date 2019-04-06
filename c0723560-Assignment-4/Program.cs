@@ -19,6 +19,7 @@ namespace c0732132_Assignment_4
             p.ReadTextFiles();
             p.find();
             p.Word();
+            p.Letters();
             Console.ReadKey();
         }
         public void Run() { this.ReadTextFiles(); }
@@ -81,6 +82,17 @@ namespace c0732132_Assignment_4
 
 
             Console.WriteLine("Total Lines which contain fare but not war: " + GHI);
+        }
+        public void Letters()
+        {
+
+            StreamReader reader = new StreamReader("U:/Users/723560/c0723560-Assignment-4/c0723560-Assignment-4/Beowulf.txt");
+            string script = reader.ReadToEnd();
+            int n = 0;
+            foreach (char letter in script)
+            { n++; }
+            Console.WriteLine("Number of letters: " + n);
+
         }
         public int FindNumberOfBlankSpaces(string line)
         {
