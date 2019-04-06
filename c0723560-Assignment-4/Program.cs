@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace c0732132_Assignment_4
 {
@@ -23,23 +24,30 @@ namespace c0732132_Assignment_4
         public void ReadTextFiles()
         {
             // Read file using StramReader. Read file line by line
-            using (StreamReader file = new StreamReader("U:/Users/723560/c0723560-Assignment-4/c0723560-Assignment-4/Beowulf.txt"))
+           
+                StreamReader reader = new StreamReader("U:/Users/723560/c0723560-Assignment-4/c0723560-Assignment-4/Beowulf.txt");
+            string script = reader.ReadToEnd();
+
+            var text = script.Trim();
+            int Count = 0, index = 0;
+
+            while (index < text.Length)
             {
-                int counter = 0;
-                string ln;
 
-                while ((ln = file.ReadLine()) != null)
-                {
-                    Console.WriteLine(ln);
-                    Beowulf.Add(ln);
+                while (index < text.Length && !char.IsWhiteSpace(text[index]))
+                    index++;
 
-                }
-                file.Close();
-                counter = File.ReadLines("U:/Users/723560/c0723560-Assignment-4/c0723560-Assignment-4/Beowulf.txt").Count();
-                Console.WriteLine($"File has {counter} lines.");
+                Count++;
+
+                while (index < text.Length && char.IsWhiteSpace(text[index]))
+                    index++;
             }
+
+            Console.WriteLine("Total Words are " + Count);
+
         }
-        public int FindNumberOfBlankSpaces(string line)
+
+    public int FindNumberOfBlankSpaces(string line)
         {
 
             int countletters = 0;
